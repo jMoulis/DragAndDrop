@@ -10,6 +10,10 @@ body {
   background-color:white;
 }
 
+button {
+  margin:15px !important;
+}
+
 .containerDropZone > aside > h4 {
   padding-top:10px;
   font-size:10pt;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import Header from './Header/Header';
-import DragAndDropFunction from './DragAndDrop';
+import DragAndDrop from './DragAndDrop';
 import TraitementEnCours from './TraitementEnCours';
 import TraitementTerminer from './TraitementTerminer';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -21,7 +21,7 @@ const spacingtitle = {
   color: 'white',
 }
 
-export default class Work extends Component {
+class Work extends Component {
 
   render() {
     return (
@@ -31,7 +31,7 @@ export default class Work extends Component {
           <div className="container" style={spacing}>
             <div className="row justify-content-centera">
               <div className="col-md-4"><p style={spacingtitle}><MdFileUpload style={icon}/>Uploader votre fichier</p>
-                <DragAndDropFunction></DragAndDropFunction>
+                <DragAndDrop/>
               </div>
 
               <div className="col-md-4"><p style={spacingtitle}><MdSettings style={icon}/>En cours de traitement ...</p>
@@ -48,4 +48,4 @@ export default class Work extends Component {
     )
   }
 
-}
+} export default Work;
