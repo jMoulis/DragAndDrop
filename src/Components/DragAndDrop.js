@@ -29,27 +29,10 @@ function DragAndDropFunction(props) {
 
   return (
 
-    <section className="containerDropZone" >
-      <form action="/upload" method="post" encType="multipart/form-data" {...getRootProps({className: 'dropzone'})}>
-        <input type="file" accept="video/*, image/*" name="drag"{...getInputProps()} />
-        <em>Upload...</em>
-      </form>
-
-      <div className="row">
-        <button type="submit" className="btn btn-primary">
-            Envoyer
-        </button>
-      </div>
-
-      <aside>
-        <h4 style={title}>Fichiers uploadés :</h4>
-        <ul>
-          {acceptedFilesItems}
-        </ul>
-        <h4 style={title}>Fichiers autorisés : </h4>
-        <h4>.mp4 / .mov / .avi / .mpeg4 / .flv / .3gpp / .jpeg / .png</h4>
-      </aside>
-    </section>
+    <form action="/upload" enctype="multipart/form-data" method="POST">
+      <input type="file" name="myFile" id="myFile" required />
+      <input type="submit" value="Upload" />
+  </form>
 
   );
 } export default DragAndDropFunction;

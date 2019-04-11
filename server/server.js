@@ -4,13 +4,18 @@ var upload = multer({ dest: 'uploads/' })
 
 var app = express()
 
-app.post('/upload', upload.single('drag'), function (req, res, next) {
-    var upload = req.body;
-    res.status(204).end()
-})
+app.post('/upload', upload.single('myFile'), (req, res) => {
+    if (req.file) {
+        console.log('Uploading file...');
+        var filename = req.file.filename;
+        var uploadStatus = 'File Uploaded Successfully';
+    } else {
+        console.log('No File Uploaded');
+        var filename = 'FILE NOT UPLOADED';
+        var uploadStatus = 'File Upload Failed';
+    }
 
+    /* ===== Add the function to save filename to database ===== */
 
-const PORT = 3000;
-
-// run server
-app.listen(PORT, () => console.log(`Server Running on PORT: ${PORT}`));
+    res.render('index.hbs', { status: uploadStatus, filename: `Name Of File: ${filename}` });
+});
